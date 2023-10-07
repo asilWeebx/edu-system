@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}</title>
+    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'css/aos.css' %}">#}
+    <link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+
+    <style>
+        @media (max-width: 844px) {
+            .ddddd {
+                margin-top: 5.5rem !important;
+            }
+
+            #wrapper {
+                margin-top: -1rem !important;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">.
+
+<!-- NAVBAR -->
+{% include 'base.html' %}
+<!-- //NAVBAR -->
+
+<!-- KDGYTFA -->
+<div class="hammasi">
+    <div class="container ddddd" style="margin-top: 3rem;">
+        <h3 class="n-text-1" style="margin-top: -1rem; margin-left: 10rem">Dashboard</h3>
+        <a class="fa fa-sign-out-alt" href="{% url 'logout' %}" style="margin-left: -50rem; color: #303972"></a>
+        <div class="n-user" style="margin-top: -2.5rem; margin-right: -7.5rem;">
+            {#        {% for user in user %}#}
+            <i class="n-icon fa-regular fa-user"></i>
+            {#        <i class="n-icon fa-solid fa-gear"></i>#}
+            <div class="nimadir" style="margin-top: 1rem">
+                <h3>{{ user.username | default:'Username' }}&ensp;</h3>
+                <p>{{ user.first_name }} {{ user.last_name }}&ensp;</p>
+            </div>
+            {% if user.photo %}
+                <img src="{{ user.photo.url }}" alt="users photo"
+                     style="width: 4.5rem; border-radius: 10rem; margin-top: -0.5rem">
+            {% else %}
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="users photo"
+                     style="width: 4.5rem; border-radius: 10rem; margin-top: -0.5rem">
+            {% endif %}
+            {#        {% endfor %}#}
+        </div>
+    </div>
+
+    {% if user.role == "O'qituvchi" %}
+        <section id="wrapper" style="margin-top: -1.5rem;">
+            <div class="p-4 container">
+                <div class="welcome">
+                    <div class="content rounded-3 p-3 mt-3">
+                        <h1 class="fs-3 mt">Welcome to the Teachers Dashboard</h1>
+                        <p class="mb-0">This page only seen to the Teachers!</p>
+                    </div>
+                </div>
+                <section class="statistics mt-4">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+                                <i class="uil-envelope-shield fs-2 text-center bg-primary rounded-circle"></i>
+                                <div class="ms-3">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="mb-0">{{ users }}</h3> <span class="d-block ms-2">All users</span>
+                                    </div>
+                                    <p class="fs-normal mb-0">Count of all users in this site.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+                                <i class="uil-file fs-2 text-center bg-danger rounded-circle"></i>
+                                <div class="ms-3">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="mb-0">{{ teacher.count }}</h3> <span
+                                            class="d-block ms-2">Teachers</span>
+                                    </div>
+                                    <p class="fs-normal mb-0">Count of teachers in this site.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="box d-flex rounded-2 align-items-center p-3">
+                                <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
+                                <div class="ms-3">
+                                    <div class="d-flex align-items-center">
+                                        <h3 class="mb-0">{{ student.count }}</h3> <span
+                                            class="d-block ms-2">Students</span>
+                                    </div>
+                                    <p class="fs-normal mb-0">Count of students in this site.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="admins mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box" style="width: 66.5rem">
+                                <!-- <h4>Admins:</h4> -->
+                                {% for notification in notifications %}
+                                    <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+                                        <div class="img">
+                                            {% if notification.user.photo %}
+                                                <img class="img-fluid rounded-pill" style="width: 5rem;"
+                                                     src="{{ notification.user.photo.url }}"
+                                                     alt="admin">
+                                            {% else %}
+                                                <img class="img-fluid rounded-pill" style="width: 5rem;"
+                                                     src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                                     alt="admin">
+                                            {% endif %}
+                                        </div>
+                                        <div class="ms-3">
+                                            <time>{{ notification.datetime }}</time>
+                                            <h3 class="fs-5 mb-1">{{ notification.user.username }}</h3>
+                                            <b class="mb-0">{{ notification.text }}</b>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <!-- <h4>Moderators:</h4> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="statis mt-4 text-center">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                            <div class="box bg-primary p-3" style="border-radius: 10px;">
+                                <i class="uil-eye"></i>
+                                <h3>{{ mark_5 }}</h3>
+                                <p class="lead">Count of marks 5</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="box bg-success p-3" style="border-radius: 10px;">
+                                <i class="uil-feedback"></i>
+                                <h3>{{ mark_4 }}</h3>
+                                <p class="lead">Count of marks 4</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                            <div class="box bg-warning p-3" style="border-radius: 10px;">
+                                <i class="uil-shopping-cart"></i>
+                                <h3>{{ mark_3 }}</h3>
+                                <p class="lead">Count of marks 3</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                            <div class="box bg-danger p-3" style="border-radius: 10px;">
+                                <i class="uil-user"></i>
+                                <h3>{{ mark_2 }}</h3>
+                                <p class="lead">Count of marks 2</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    {% else %}
+        <section id="wrapper" style="margin-top: -1.5rem;">
+            <div class="p-4 container">
+                <div class="welcome">
+                    <div class="content rounded-3 p-3 mt-3">
+                        <h1 class="fs-3 mt">Welcome to the Students Dashboard</h1>
+                        <p class="mb-0">This page only seen to the Students!</p>
+                    </div>
+                </div>
+
+                <section class="admins mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box" style="width: 66.5rem">
+                                <!-- <h4>Admins:</h4> -->
+                                {% for notification in notifications %}
+                                    <div class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+                                        <div class="img">
+                                            {% if notification.user.photo %}
+                                                <img class="img-fluid rounded-pill" style="width: 5rem;"
+                                                     src="{{ notification.user.photo.url }}"
+                                                     alt="admin">
+                                            {% else %}
+                                                <img class="img-fluid rounded-pill" style="width: 5rem;"
+                                                     src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                                     alt="admin">
+                                            {% endif %}
+                                        </div>
+                                        <div class="ms-3">
+                                            <time>{{ notification.datetime }}</time>
+                                            <h3 class="fs-5 mb-1">{{ notification.user.username }}</h3>
+                                            <b class="mb-0">{{ notification.text }}</b>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <!-- <h4>Moderators:</h4> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+        </section>
+    {% endif %}
+
+</div>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+<!-- ESJHFJSEH -->
+
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

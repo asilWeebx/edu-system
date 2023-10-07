@@ -1,0 +1,55 @@
+<div  class="topics">
+    <div class="topics__header">
+        <h2>CHAT PAGE</h2>
+    </div>
+    <ul  class="topics__list">
+        <div class="logo-img">
+            {% if user.photo %}
+                <img style="border-radius: 100%" src="{{ user.photo.url }}" alt="users photo" class="log-img">
+            {% else %}
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="users photo" class="log-img">
+            {% endif %}
+        </div>
+
+        <h3 class="text-light"
+            style="text-align: center;margin-bottom: 35px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            <i class="fa-solid fa-user"></i> {{ user.username | default:'not register' }}
+        </h3>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}"><i class="fa-solid fa-house"></i> Dashboard</a>
+                </li>
+                {% if user.role == "O'quvchi" %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'students' %}"><i class="fa-solid fa-users">
+                        </i> Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'marksheet' %}"><i class="fa-solid fa-marker">
+                        </i> Marksheet</a>
+                    </li>
+                {% elif user.role == "O'qituvchi" or user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'students' %}"><i class="fa-solid fa-users"></i> Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_user' %}"><i class="fa-solid fa-user-plus"></i> Add
+                            user</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'notifications' %}"> <i class="fa-solid fa-bell"></i>
+                        Notifacation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user' %}"><i class="fa-solid fa-circle-user"></i> User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-comments"></i> Chat</a>
+                </li>
+
+            </ul>
+        </div>
+</div>

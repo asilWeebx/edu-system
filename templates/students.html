@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
+    <title>Document</title>
+
+    <style>
+        .t-ico-1 {
+            font-size: 30px;
+            color: #A098AE;
+        }
+
+        .t-icon-2 {
+            font-size: 25px;
+            color: #FB7D5B;
+        }
+
+        .table {
+        {#margin-top: 1rem;#} margin-left: 9.5rem !important;
+            width: 60rem !important;
+        }
+
+        @media (max-width: 844px) {
+            .ddddd {
+                margin-top: 7.5rem !important;
+            }
+
+            #wrapper {
+                margin-top: 1rem !important;
+            }
+
+            .table {
+                display: block;
+                margin-top: 2rem;
+                margin-left: 0rem !important;
+                width: 60rem !important;
+            }
+        }
+
+        .hammasi {
+            width: 90% !important;
+        }
+
+        body {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .n-userr {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .n-userr div {
+            margin-left: 10px;
+        }
+
+        .ddddd {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .n-iconn {
+            font-size: 40px;
+            margin-left: 10px;
+        }
+
+        .n-text-11 {
+            margin-top: 30px !important;
+            margin-bottom: 30px;
+        }
+
+        .t-ico-1 {
+            font-size: 30px;
+            color: #A098AE;
+        }
+
+        .t-icon-2 {
+            font-size: 25px;
+            color: #FB7D5B;
+        }
+
+        .n-text-11 {
+            margin-left: 0;
+        }
+
+        .table {
+            margin-top: 5rem;
+            /* margin-left: 15rem !important; */
+            width: 60rem !important;
+        }
+
+        @media (max-width: 993px) {
+            .ddddd {
+                margin-top: 50px;
+            }
+
+            .n-text-11 {
+                margin-top: 60px !important;
+            }
+
+            .n-userr {
+                margin-top: 20px !important;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .hammasi {
+                width: 100% !important;
+            }
+
+            .navbar {
+                position: fixed !important;
+            }
+
+
+            .content-chat {
+                margin-top: 60px !important;
+            }
+
+            .nav-item {
+                text-align: center !important;
+                margin-left: 15px;
+            }
+
+            .navbar {
+                width: 100% !important;
+                position: fixed;
+
+            }
+
+            .text-light {
+                /* display: none; */
+                margin: 0 !important;
+            }
+
+            .logo-img {
+                display: none;
+
+            }
+        }
+
+        @media (max-width: 913px) {
+            .text-light {
+                display: inline-block;
+            }
+        }
+
+        @media (max-width: 844px) {
+            .ddddd {
+                margin-top: 3.5rem !important;
+            }
+
+            #wrapper {
+                margin-top: 1rem !important;
+            }
+
+            .table {
+                display: block;
+                margin-top: 2rem;
+                /* margin-left: 0rem !important; */
+                width: 60rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+
+{% include 'base.html' %}
+
+<div class="hammasi">
+
+    <div class="container ddddd" style="margin-top: 3rem">
+        <h3 class="n-text-1" style="margin-top: -1rem; margin-left: 10rem">Students List and Filter</h3>
+        <a class="fa fa-sign-out-alt" href="{% url 'logout' %}"
+           style="margin-left: -27rem; color: #303972; margin-top: -1rem"></a>
+        <div class="n-user" style="margin-top: -2.5rem; margin-right: -8rem">
+            {% if user.is_superuser %}
+                <a href="{% url 'teachers-grade' %}" class="fa fa-cog" aria-hidden="true" style="color: gray"></a>
+            {% else %}
+            {% endif %}
+            {#        {% for user in user %}#}
+            <i class="n-icon fa-regular fa-user"></i>
+            {#        <i class="n-icon fa-solid fa-gear"></i>#}
+            <div style="margin-top: 1rem">
+                <h3>{{ user.username | default:'Username' }}&ensp;</h3>
+                <p>{{ user.first_name }} {{ user.last_name }}&ensp;</p>
+            </div>
+            {% if user.photo %}
+                <img src="{{ user.photo.url }}" alt="users photo"
+                     style="width: 4.5rem; border-radius: 10rem; margin-top: -0.5rem">
+            {% else %}
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="users photo"
+                     style="width: 4.5rem; border-radius: 10rem; margin-top: -0.5rem">
+            {% endif %}
+            {#        {% endfor %}#}
+        </div>
+    </div>
+
+    <div class="container" style="margin-left: 3rem">
+        {#        {% for class in filter_class %}#}
+        {#            <a href="{% url 'filter-class' class.grade_id %}"#}
+        {#               style="margin-left: 10rem; margin-right: -8rem; color: #303972">{{ class.grade }}</a>#}
+        {#        {% endfor %}#}
+    {% if user.role == "O'qituvchi" %}
+        <h4 style="margin-left: 35rem; color: #303972">Filter classes</h4>
+        <table class="table table-bordered container" style="margin-top: 10px; margin-left: 5rem">
+
+            <thead>
+            <tr>
+                <th scope="col">Class Name</th>
+                <th scope="col">School Name</th>
+            </tr>
+            </thead>
+            <tbody class="container">
+            {% for class in filter_class %}
+                <tr>
+                    <td><a href="{% url 'filter-class' class.grade_id %}" style="color: #000000">{{ class.grade }}</a>
+                    </td>
+                    <td>{{ class.grade.school }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <br>
+        <table class="table table-bordered container" style="margin-top: 10px; margin-left: 5rem">
+            <h4 style="color: #303972; margin-left: 35.7rem">All students</h4>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">Username</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Role</th>
+            </tr>
+            </thead>
+            <tbody class="container">
+            {% for students in students %}
+                <tr>
+                    <td>{{ students.id }}</td>
+                    <td><a href="{% url 'student-details' students.id %}"
+                           style="color: #000000"> {{ students.first_name }}</a></td>
+                    <td>{{ students.last_name }}</td>
+                    <td>{{ students.email }}</td>
+                    <td>{{ students.phone_number }}</td>
+                    <td>{{ students.username }}</td>
+                    <td>{{ students.grade }}</td>
+                    <td>{{ students.role }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {#            <button type="submit"#}
+        {#                    style="margin-left: 9.5rem; width: 60rem; height: 3rem; border: None; background-color: royalblue; color: #ffffff">#}
+        {#                Submit#}
+        {#            </button>#}
+    </div>
+</div>
+
+
+<!-- Links -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</body>
+
+</html>

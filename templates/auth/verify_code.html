@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(135deg, #5EE7DF, #B490CA);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid #D261E5;
+            font-size: 16px;
+            outline: none;
+            transition: border-bottom 0.3s;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        input[type="password"]:focus {
+            border-bottom: 2px solid #9D44D5;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-image: linear-gradient(135deg, #9D44D5, #D261E5);
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-image 0.3s;
+        }
+
+        button:hover {
+            background-image: linear-gradient(135deg, #5E2585, #9D44D5);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #5E2585;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <h2 class="form-title">Enter Verification Code</h2>
+    <input type="password" name="verify" placeholder="Verification Code"/>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        td img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        .grade-circle {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: #17a2b8;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .student-row:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .student-row:hover {
+            background-color: #f0e68c;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+<h1>Students Marks Today</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Photo</th>
+        <th>E-mail</th>
+        <th>Grade</th>
+        <th>Mark Today</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+        <tr class="student-row">
+            {% if student.user.photo %}
+                <td><img src="{{ student.user.photo.url }}" alt="students photo"></td>
+            {% else %}
+                <td><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="students photo"></td>
+            {% endif %}
+        <td>{{ student.user.email }}</td>
+            <td>
+                <div><p>{{ student.user.grade }}</p></div>
+            </td>
+            {% if student.mark == 5 %}
+                <td><span style="font-weight: bold; color: royalblue">{{ student.mark}}</span></td>
+            {% elif student.mark == 4 %}
+                <td><span style="font-weight: bold; color: #28a745">{{ student.mark }}</span></td>
+            {% elif student.mark == 3 %}
+                <td><span style="font-weight: bold; color: #E6C200">{{ student.mark }}</span></td>
+            {% elif student.mark == 2 %}
+                <td><span style="font-weight: bold; color: red">{{ student.mark }}</span></td>
+            {% endif %}
+            <td>{{ student.date }}</td>
+        </tr>
+    {% endfor %}
+    <!-- Add more rows as needed -->
+    </tbody>
+</table>
+</body>
+</html>

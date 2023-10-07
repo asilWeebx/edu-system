@@ -1,0 +1,50 @@
+{% extends "attendance/base.html" %}
+
+{% block title %}
+    {{ grade.name }} jamoasining  davomati
+{% endblock title %}
+
+{% block content %}
+    {% now "Y-m-d" as today %}
+    <div class="container mt-3">
+        <div class=" mt-3 ">
+            <h3 class="m-3">{{ grade.name }} jamoasining davomati</h3>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th scope="col">Ism Familiya</th>
+                    {% for grade in grade.user.first.marks.all %}
+                        <th style="writing-mode:vertical-rl; text-orientation:mixed" scope="col" >{{ grade.attendance.date|date:"Y-m-d" }}</th>
+                    {% endfor %}
+
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for user in grade.user.all %}
+
+                    <tr>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        {% for mark in user.marks.all %}
+                            {% if mark.is_attended %}
+                                <td style="height:5px; width: 5px;"></td>
+                            {% else %}
+                                <td style="height:5px; width: 5px; background-color: black;"></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+            </table>
+            {% if is_att_taken %}
+                <a href="#" class="btn btn-danger">Davomad olib bo'lingan.</a>
+            {% else %}
+                <a class="btn btn-primary" href="">Davomat olish</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

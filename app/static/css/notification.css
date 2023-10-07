@@ -1,0 +1,132 @@
+body {
+	background-color: #c9c7c7;
+}
+
+header {
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-around;
+}
+.ddddd {
+	justify-content: space-between !important;
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	/* flex-direction: column; */
+}
+
+.box-body  {
+	margin-top: 1rem !important;
+}
+
+.n-icon {
+	/* margin-top: 1rem; */
+	margin-right: 2rem;
+	font-size: 30px;
+	color: #a098ae;
+}
+
+.n-icon-u {
+	margin-left: 1rem;
+	font-size: 70px;
+	color: #a098ae;
+}
+
+.n-text-1 {
+	margin-left: 10rem;
+	width: 30%;
+	font-size: 34px;
+	color: #303972;
+}
+.n-user {
+	width: 70%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+@media only screen and (max-width: 990px) {
+	.n-text-1 {
+		font-size: 24px;
+	}
+	.n-text-1 {
+		display: flex;
+		margin-left: -0rem;
+		justify-content: center;
+		width: 100%;
+	}
+	.n-user {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+	.ddddd {
+		flex-direction: column;
+	}
+}
+
+.n-text-2 {
+	/* font-size: 34px; */
+	color: #303972;
+}
+
+.news-box-1 {
+	padding: 20px;
+	border-radius: 15px;
+	width: 400px !important;
+	height: max-content;
+	background-color: #c1bbeb;
+}
+.news {
+	margin-left: 2rem;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.box-body {
+	float: right;
+	padding: 20px 0;
+	border-radius: 15px;
+	width: 100%;
+	height: max-content;
+	background-color: #f2f2f2;
+}
+
+@media (max-width: 844px) {
+	.n-text-1 {
+		/* display: none; */
+		margin-top: 3rem;
+		font-size: 24px;
+	}
+
+	.ddddd {
+		margin-top: 4rem !important;
+	}
+	.n-text-1 {
+		display: none;
+	}
+
+	.n-user {
+		margin-top: 1rem;
+	}
+	.box-body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 3rem !important;
+		float: right;
+		padding: 20px 0;
+		border-radius: 15px;
+		width: 100% !important;
+		height: max-content;
+		background-color: #f2f2f2;
+	}
+	.box-body {
+		margin-top: 1rem !important;
+	}
+	.n-body {
+		margin-left: -1.8rem;
+		width: 100%;
+	}
+}

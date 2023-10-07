@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/notification.css">
+  <title>Document</title>
+
+  <style>
+    .navbar {
+      position:  relative !important;
+      width: 20%;
+
+    }
+    .hammasi {
+      width: 80% !important;
+    }
+    body {
+      display: flex;
+      justify-content: space-between;
+    }
+    .n-userr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .n-userr div {
+      margin-left: 10px;
+    }
+    .ddddd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .n-iconn {
+      font-size: 40px;
+      margin-left: 10px;
+    }
+    .n-text-11 {
+        margin-top: 30px !important;
+        margin-bottom: 30px;
+      }
+    .t-ico-1 {
+      font-size: 30px;
+      color: #A098AE;
+    }
+
+    .t-icon-2 {
+      font-size: 25px;
+      color: #FB7D5B;
+    }
+    .n-text-11 {
+      margin-left: 0;
+    }
+
+    .table {
+      margin-top: 5rem;
+      /* margin-left: 15rem !important; */
+      width: 60rem !important;
+    }
+    
+    @media (max-width: 993px) {
+      .ddddd {
+        margin-top: 50px;
+      }
+      .n-text-11 {
+        margin-top: 60px !important;
+      }
+      .n-userr {
+        margin-top: 20px !important;
+        display: flex;
+        justify-content: space-between;
+      }
+      .hammasi {
+      width: 100% !important;
+    } 
+      .navbar {
+        position: fixed !important;
+      }
+     
+
+      .content-chat {
+        margin-top: 60px !important;
+      }
+
+      .nav-item {
+        text-align: center !important;
+        margin-left: 15px;
+      }
+
+      .navbar {
+        width: 100% !important;
+        position: fixed;
+
+      }
+
+      .text-light {
+        /* display: none; */
+        margin: 0 !important;
+      }
+
+      .logo-img {
+        display: none;
+
+      }
+    }
+
+    @media (max-width: 913px) {
+      .text-light {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 844px) {
+      .ddddd {
+        margin-top: 3.5rem !important;
+      }
+
+      #wrapper {
+        margin-top: 1rem !important;
+      }
+
+      .table {
+        display: block;
+        margin-top: 2rem;
+        /* margin-left: 0rem !important; */
+        width: 60rem !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #4d44b5 !important;">
+    <div class="container flex-lg-column">
+      <div class="logo-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" class="log-img">
+      </div>
+
+      <h3 class="text-light"
+        style="margin-bottom: 35px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <i class="fa-solid fa-user"></i> User Name
+      </h3>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html" href="#work"><i class="fa-solid fa-house"></i> Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/assets/html/students.html" href="#work"><i class="fa-solid fa-user"></i>
+              Students</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/assets/html/qanaqadirpage.html" href="#work"><i
+                class="fa-solid fa-chalkboard-user"></i> Teacher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/assets/html/notification.html" href="#work"> <i class="fa-solid fa-bell"></i>
+              Notifacation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/assets/html/user.html"><i class="fa-solid fa-circle-user"></i> User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/assets/html/chat.html" href="#work"><i class="fa-solid fa-comments"></i> Chat</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="hammasi">
+
+    <div class="container ddddd">
+      <h3 class="n-text-11" style="margin-top: -1rem;">Dashboard </h3>
+      <div class="n-userr" style="margin-top: -1rem;">
+        <i class="n-iconn fa-regular fa-bell"></i>
+        <i class="n-iconn fa-solid fa-gear"></i>
+        <div>
+          <h3>Name</h3>
+          <p>Axmet Yassaviy</p>
+        </div>
+        <i class="n-iconn fa-solid fa-circle-user"></i>
+      </div>
+    </div>
+
+
+<form method="post">
+    <div class="container table-responsive">
+      <table class="table table-bordered container ">
+        <thead>
+          <tr>
+            <th scope="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="attendance" />
+              </div>
+            </th>
+            <th scope="col">Name</th>
+            <th scope="col">ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Parent Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody class="container">
+          <tr>
+            <th scope="row">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              </div>
+            </th>
+            <td><i class="t-ico-1 fa-solid fa-circle"></i> Sit</td>
+            <td>Amet</td>
+            <td>Consectetur</td>
+            <td>Temporibus</td>
+            <td>Uzbekistan</td>
+            <td class="d-flex justify-content-around mt-2"><i class="t-icon-2 fa-solid fa-phone"></i> <i
+                class="t-icon-2 fa-solid fa-message"></i></td>
+            <td>4+</td>
+            <td>badly</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              </div>
+            </th>
+            <td><i class="t-ico-1 fa-solid fa-circle"></i> Adipisicing</td>
+            <td>Elit</td>
+            <td>Sint</td>
+            <td>Temporibus</td>
+            <td>Uzbekistan</td>
+            <td class="d-flex justify-content-around mt-2"><i class="t-icon-2 fa-solid fa-phone"></i> <i
+                class="t-icon-2 fa-solid fa-message"></i></td>
+            <td>4+</td>
+            <td>badly</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              </div>
+            </th>
+            <td><i class="t-ico-1 fa-solid fa-circle"></i> Hic</td>
+            <td>Fugiat</td>
+            <td>Temporibus</td>
+            <td>Temporibus</td>
+            <td>Uzbekistan</td>
+            <td class="d-flex justify-content-around mt-2"><i class="t-icon-2 fa-solid fa-phone"></i> <i
+                class="t-icon-2 fa-solid fa-message"></i></td>
+            <td>4+</td>
+            <td>badly</td>
+          </tr>
+          <th scope="row">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            </div>
+          </th>
+          <td><i class="t-ico-1 fa-solid fa-circle"></i> Hic</td>
+          <td>Fugiat</td>
+          <td>Temporibus</td>
+          <td>Temporibus</td>
+          <td>Uzbekistan</td>
+          <td class="d-flex justify-content-around mt-2"><i class="t-icon-2 fa-solid fa-phone"></i> <i
+              class="t-icon-2 fa-solid fa-message"></i></td>
+          <td>4+</td>
+          <td>badly</td>
+          </tr>
+          <th scope="row">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            </div>
+          </th>
+          <td><i class="t-ico-1 fa-solid fa-circle"></i> Hic</td>
+          <td>Fugiat</td>
+          <td>Temporibus</td>
+          <td>Temporibus</td>
+          <td>Uzbekistan</td>
+          <td class="d-flex justify-content-around mt-2"><i class="t-icon-2 fa-solid fa-phone"></i> <i
+              class="t-icon-2 fa-solid fa-message"></i></td>
+          <td>4+</td>
+          <td>badly</td>
+          </tr>
+          <th scope="row">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            </div>
+          </th>
+          <td><i class="t-ico-1 fa-solid fa-circle"></i> Hic</td>
+          <td>Fugiat</td>
+          <td>Temporibus</td>
+          <td>Temporibus</td>
+          <td>Uzbekistan</td>
+          <td class="d-flex justify-content-around mt-2"><i class="t-icon-2 fa-solid fa-phone"></i> <i
+              class="t-icon-2 fa-solid fa-message"></i></td>
+          <td>4+</td>
+          <td>badly</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- Links -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</body>
+
+</html>
